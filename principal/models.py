@@ -10,7 +10,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.timezone import now
-
+from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy as _
 
 from datetime import datetime
@@ -31,7 +31,7 @@ class BlogPost(models.Model):
     title=models.CharField(max_length=255)
     author= models.ForeignKey(User, on_delete=models.CASCADE)
     slug=models.CharField(max_length=130)
-    text = models.TextField(_('text'))
+    text = RichTextField(_('text'))
     description = models.TextField(_('description'), default='Default description')
     content=models.TextField()
     image = models.ImageField(upload_to="profile_pics", blank=True, null=True)

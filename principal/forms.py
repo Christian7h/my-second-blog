@@ -1,6 +1,7 @@
 from django import forms
 from .models import Profile, BlogPost
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 
 
 class ProfileForm(forms.ModelForm):
@@ -17,6 +18,6 @@ class BlogPostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Title of the Blog'}),
             'slug': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Copy the title with no space and a hyphen in between'}),
             'content': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Content of the Blog'}),
-            'text': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Text of the Blog'}), # Utilizar CKEditorWidget para el campo 'text'
+            'text': CKEditorWidget(attrs={'class':'form-control', 'placeholder':'Text of the Blog'}), # Utilizar CKEditorWidget para el campo 'text'
             'description': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Description of the Blog'}),
         }
