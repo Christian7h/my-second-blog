@@ -1,0 +1,297 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORPO SANNO</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" media="all" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/datosgobar/series-tiempo-ar-explorer@ts_components_2.9.0/dist/css/components.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+</head>
+
+<body >
+
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #8fffff;">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'logocorpo.png' %}" alt="Logo" width="205" height="88" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNavbar()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <script>
+                    function toggleNavbar() {
+                        var navbar = document.getElementById("navbarNav");
+                        navbar.classList.toggle("show");
+                    }
+                </script>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#Inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#Servicios">Servicios</a>
+                        </li>   
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#Reserva de Cita">Reserva de Cita</a>
+                        </li> 
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#Profesionales">Profesionales</a>
+                        </li>     
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#Acerca de Nosotros">Acerca de Nosotros</a>
+                        </li>   
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#Contactos">Contacto</a>
+                        </li> 
+                     
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="seccion" id="Servicios">
+        <div class="contenedor">
+            <div class="titulo">
+                <h2>¿Qué ofrecemos?</h2>
+            </div>
+            <div class="tarjetas">
+                <div class="tarjeta">
+                    <img src="{% static 'masaje.png' %}" alt="Masaje">
+                    <h3>Masajes</h3>
+                    <p>Las sesiones de masajes en Corpo Sanno son una experiencia única de relajación y bienestar. Ofrecemos una variedad de masajes, desde opciones relajantes hasta terapéuticas y reflexivas. Nuestros terapeutas expertos utilizan técnicas especializadas para aliviar la tensión muscular, mejorar la circulación y proporcionar un alivio general del estrés. Descubre cómo nuestros masajes pueden contribuir a tu salud y equilibrio.</p>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'fisio1.png' %}" alt="Fisioterapia">
+                    <h3>Fisioterapia</h3>
+                    <p>En Corpo Sanno, la fisioterapia va más allá de la rehabilitación convencional. Nuestros servicios incluyen programas de rehabilitación postoperatoria, fisioterapia en sala especializada y asesoramiento para la readaptación a la vida cotidiana. Nuestro equipo de fisioterapeutas altamente capacitados se enfoca en el bienestar integral, trabajando para mejorar la movilidad, fortalecer los músculos y promover la recuperación total.</p>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'masajefacial.png' %}" alt="Naturaterapia">
+                    <h3>Reafirmación de Piel</h3>
+                    <p>Recupera la elasticidad y firmeza de tu piel con nuestros tratamientos de reafirmación. Mejora la textura y tonicidad para una apariencia rejuvenecida.</p>
+                </div>
+            </div>
+
+                <div class="card">
+                    <h5 class="card-header ">Guias informativas sobre salud</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">5 consejos para cuidar tu piel</h5>
+                      <p class="card-text">Consejo sobre cuidado de la piel y un poco más de texto...</p>
+                      <a href="/blog/" class="btn btn-primary">Leer más</a>
+                    </div>
+                </div>
+            
+        </div>
+    
+
+    </section>
+
+    
+
+    <section class="seccion" id="Reserva de Cita">
+        <div class="contenedor">
+            <div class="titulo">
+                <h2>Reserva de Citas</h2>
+            </div>
+            <div class="tarjetas">
+                <div class="tarjeta">
+                    <img src="{% static 'kineReserva.png' %}" alt="Profesional">
+                    <h3>Kinesiologia</h3>
+                    <p>Explora nuestro servicio de kinesiología con profesionales altamente capacitados. Trabajamos para mejorar tu salud y bienestar físico.</p>
+                    <div id="scheduling-button"></div>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'nutrireserva.png' %}" alt="Profesional">
+                    <h3>Nutricionista</h3>
+                    <p>Descubre cómo nuestros nutricionistas pueden ayudarte a alcanzar tus metas de salud a través de planes personalizados y asesoramiento experto.</p>
+                    <div id="scheduling-button1"></div>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'enferReserva.png' %}" alt="Profesional">
+                    <h3>Enfermera</h3>
+                    <p>Nuestros profesionales de enfermería están aquí para brindarte cuidados compasivos y servicios de salud centrados en el paciente.</p>
+                    <div id="scheduling-button2"></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="seccion" id="Profesionales">
+        <div class="contenedor">
+            <div class="titulo">
+                <h2>Equipo</h2>
+            </div>
+            <div class="tarjetas">
+                <div class="tarjeta">
+                    <img src="{% static 'pedro.png' %}" alt="Profesional">
+                    <h3>Pedro Gavilán -Kinesiólogo</h3>
+                    <p>6:00-13:00 JORNADA MAÑANA ( ENTRENAMIENTO Y KINESIOLOGIA) </p>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'fran.png' %}" alt="Profesional">
+                    <h3>Francisca Díaz -Kinesiologa</h3>
+                    <p>9:00-20:30 Depilacion laser, tto corporales , post operatorio </p>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'valen.png' %}" alt="Profesional">
+                    <h3>Valentina Romanini -Esteticista</h3>
+                    <p>9:00-20:30 Tratamiento faciales , tto corporales, masajes de
+                        relajación</p>
+                </div>
+                <div class="tarjeta">
+                    <img src="{% static 'dani.png' %}" alt="Profesional">
+                    <h3>Daniela Encina -Kinesióloga </h3>
+                    <p>Masajes terapéuticos (relajación, descontracturante, deportivos)
+                        Solo en las tardes (lunes-mar-jueves desde las 17:00, miércoles desde las 15:00)
+                    </p>
+                </div>
+                <div class="tarjeta">
+                    <img src="" alt="Profesional">
+                    <h3>Ariel Farías -Kinesiólogo </h3>
+                    <p>Electro punción, terapia neural, electrolisis percutánea, Medicina
+                        bioreguladora, Hiperbárica.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5" id="Acerca de Nosotros" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="display-4">Acerca de nosotros</h2>
+                    <p class="lead">
+                        En <strong>Corpo Sano</strong>, nos dedicamos a brindar servicios de salud y estética de alta calidad, con el compromiso de mejorar el bienestar general de nuestros clientes. Nos enorgullece ofrecer un enfoque integral que abarca desde tratamientos corporales rejuvenecedores hasta servicios de rehabilitación.
+                    </p>
+        
+                    <p class="lead">
+                        Nuestro equipo está formado por profesionales altamente capacitados y apasionados por su trabajo. Trabajamos arduamente para proporcionar soluciones personalizadas que se adapten a las necesidades específicas de cada individuo, promoviendo la salud física y emocional.
+                    </p>
+        
+                    <p class="lead">
+                        En Corpo Sano, creemos en la importancia de la atención personalizada y en crear un ambiente acogedor para nuestros clientes. Buscamos ser líderes en el sector, destacando por la excelencia en el servicio, la innovación en los tratamientos y el compromiso con la satisfacción del cliente.
+                    </p>
+        
+                    <p class="lead">
+                        Agradecemos la confianza depositada en nosotros y nos comprometemos a seguir mejorando y creciendo, siempre con el objetivo de contribuir al bienestar y la belleza de quienes eligen Corpo Sano.
+                    </p>                
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ 
+    <footer class="pie-pagina bg-personalizado py-5" id="Contactos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box">
+                        <figure>
+                            <a>
+                                <img src="{% static 'blackcorpo.png' %}" alt="CORPOSANNO" class="img-fluid">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <h2>SOBRE NOSOTROS</h2>
+                        <div>
+                            <b>Teléfono: +56968529132</b>
+                        </div>
+                        <div> 
+                            <b>info@corposanno.com</b>
+                        </div>
+                        <div>
+                            <b>Libertad 81, Melipilla</b>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1290.0766011566993!2d-71.20802808041496!3d-33.68843813344429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966255ab43935573%3A0x35479b921374266c!2sCentro%20Integral%20de%20Salud%20y%20Est%C3%A9tica%20Corposanno!5e0!3m2!1ses-419!2scl!4v1701121763776!5m2!1ses-419!2scl"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <h2>Contactos</h2>
+                        <div class="red-social">
+                            <a href="https://www.facebook.com/asbrgtbtr" class="fa fa-facebook"> <svg  viewBox="0 0 24 24"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+                            <a href="https://www.instagram.com/corposanno_/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="fa fa-instagram"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+                            <a href="https://api.whatsapp.com/send?phone=56981322040" class="fa fa-whatsapp"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <small>&copy; 2022 <b>CORPO SANNO</b> - Todos los Derechos Reservados.</small>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script>
+        (function() {
+         var target = document.getElementById('scheduling-button');
+         window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0XX1LaOJubJomdKGCnh2_l6lXA4AjsyEK4t6v_RkoXN8i9hyplN58RBYz33XavJcKf2jNn4xea?gv=true',
+              color: '#039BE5',
+              label: "Reservar una Cita(Kine)",
+              target,
+            });
+         });
+        })();
+    </script>
+    
+    <script>
+        (function() {
+        var target = document.getElementById('scheduling-button1');
+        window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ19vaxVC6PlVcuOWYJVQqRUrysSOxycbcdayAJyTeaLPuRK_Oy5fc7zr_riTHyL3LT1NHfeVARl?gv=true',
+            color: '#33B679',
+            label: "Reserva de Cita(Nutri)",
+            target,
+            });
+        });
+        })();
+    </script>
+    
+    <script>
+    (function() {
+        var target = document.getElementById('scheduling-button2');
+        window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uz93aQj_uYnNpZne84suekeDjcpB9tGoYLQgqVxg8RdSSO5N0bdHatOIVid99z4RlfA6Bq7LB?gv=true',
+            color: '#8E24AA',
+            label: 'Reservar una cita(Enfer)',
+            target,
+            });
+        });
+        })();
+    
+    </script>
+</body>
+
+
+</html>
