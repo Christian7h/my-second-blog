@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CORPO SANNO</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles1.css' %}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg" style="background-color: #8fffff;">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="{% static 'logocorpo.png' %}" alt="Logo" width="205" height="88" class="d-inline-block align-text-top">
+                    <img src="{% static 'blackcorpo.png' %}" alt="Logo" width="205" height="88" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNavbar()">
                     <span class="navbar-toggler-icon"></span>
@@ -53,103 +53,99 @@
                             <a class="nav-link" href="#Profesionales">Profesionales</a>
                         </li>     
                         <li class="nav-item active">
-                            <a class="nav-link" href="/blog/">Blog</a>
+                            <a class="nav-link" href="/blog/">Información</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#Acerca de Nosotros">Acerca de Nosotros</a>
                         </li>   
                         <li class="nav-item active">
-                            <a class="nav-link" href="#Contactos">Contacto</a>
+                            <a class="nav-link" href="#Contacto">Contacto</a>
                         </li> 
                      
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
+      </header>
 
-<section class="seccion" >
-  <div class="contenedor">
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="1000">
-          <img src="{% static 'dani.png' %}" class="d-block w-30" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-          <img src="{% static 'masaje.png' %}" class="d-block w-30" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-          <img src="{% static 'fran.png' %}" class="d-block w-30" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
+  
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <!-- Carousel inner -->
+  <div class="carousel-inner">
+    {% for image in images %}
+      {% if forloop.first %}
+        <div class="carousel-item active">
+      {% else %}
+        <div class="carousel-item">
+      {% endif %}
+        <img class="d-block w-100" src="{{ image.image.url }}" alt="{{ image.title }}">
+        <div class="carousel-caption d-none d-md-block">
+          {% if image.link %}
+            <p><a href="{{ image.link }}" class="btn btn-light">Learn more</a></p>
+          {% endif %}
+          {% if image.description %}
+            <p class="card-text">{{ image.description }}</p>
+          {% endif %}
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    </div>
-</section>
+    {% endfor %}
+  </div>
+
+  <!-- Carousel controls -->
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
 
     <section class="seccion" id="Servicios">
         <div class="contenedor">
+
             <div class="titulo">
                 <h2>¿Qué ofrecemos?</h2>
             </div>
             <div class="tarjetas">
                 <div class="tarjeta">
                     <img src="{% static 'masaje.png' %}" alt="Masaje">
-                    <h3>Masajes</h3>
-                    <p>Las sesiones de masajes en Corpo Sanno son una experiencia única de relajación y bienestar. Ofrecemos una variedad de masajes, desde opciones relajantes hasta terapéuticas y reflexivas. Nuestros terapeutas expertos utilizan técnicas especializadas para aliviar la tensión muscular, mejorar la circulación y proporcionar un alivio general del estrés. Descubre cómo nuestros masajes pueden contribuir a tu salud y equilibrio.</p>
+                    <h3>TRATAMIENTOS DE BELLEZA</h3>
+                    <p>Ofrecemos  una variedad de tratamientos que se ajustan según tus necesidades, desde tratamientos corporales (reafirmante, reductivo, depilación láser), Faciales e inyectables realizados  por nuestras profesionales  kinesióloga, Enfermera y esteticista integral, que te entregaran una experiencia  relajante y única para contribuir a tu salud y bienestar.</p>
                 </div>
                 <div class="tarjeta">
                     <img src="{% static 'fisio1.png' %}" alt="Fisioterapia">
-                    <h3>Fisioterapia</h3>
-                    <p>En Corpo Sanno, la fisioterapia va más allá de la rehabilitación convencional. Nuestros servicios incluyen programas de rehabilitación postoperatoria, fisioterapia en sala especializada y asesoramiento para la readaptación a la vida cotidiana. Nuestro equipo de fisioterapeutas altamente capacitados se enfoca en el bienestar integral, trabajando para mejorar la movilidad, fortalecer los músculos y promover la recuperación total.</p>
+                    <h3>CORPO SANNO SPORT</h3>
+                    <p>Nos encargamos de llevar la kinesiología un nivel más allá, mirando y acompañando a la persona de una manera Integral, te ayudaremos a entender  tu lesión y entregamos las herramientas necesarias para que el retorno a sus actividades sea lo más pronto posible.
+                      Nuestros servicios incluyen educación y rehabilitación física, más una atención personalizada uno a uno por nuestros profesionales especializados en el área.
+                      </p>
                 </div>
                 <div class="tarjeta">
                     <img src="{% static 'masajefacial.png' %}" alt="Naturaterapia">
-                    <h3>Reafirmación de Piel</h3>
-                    <p>Recupera la elasticidad y firmeza de tu piel con nuestros tratamientos de reafirmación. Mejora la textura y tonicidad para una apariencia rejuvenecida.</p>
+                    <h3>SALUD INTEGRAL
+                    </h3>
+                    <p>Brindamos una diversa gama de especialidades en nuestro centro  que puedes encontrar para complementar  tu salud y bienestar. Nuestros profesionales  especializados en las áreas de nutrición, Psicología, Kinesiología integrativa-bioreguladora y  Masoterapia  terapéutica, te atenderán y guiaran en tus objetivos para cuidar completo equilibrio  físico, psíquico y emocional.
+                    </p>
                 </div>
             </div>
-
-                <div class="card">
-                    <h5 class="card-header ">Guias informativas sobre salud</h5>
-                    <div class="card-body">
-                      <h5 class="card-title">5 consejos para cuidar tu piel</h5>
-                      <p class="card-text">Consejo sobre cuidado de la piel y un poco más de texto...</p>
-                      <a href="/blog/" class="btn btn-primary">Leer más</a>
-                    </div>
-                </div>
             
         </div>
-    
-
     </section>
 
-    
 
+
+  
+      <div class="tarjeta">
+        <h3 class="card-title">Explora nuestro blog</h3>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, recusandae sunt similique illo, distinctio laboriosam earum nihil obcaecati repudiandae perferendis eos voluptates? Reprehenderit a tempore quo neque accusamus nam id?</p>          <a href="/blog/" class="btn btn-primary btn-lg" style="box-shadow: 5px 6px 10px rgb(7, 156, 183);     background-color: #33B679; color: #ffffff;">Explora nuestro blog</a>
+      </div>
+
+  
     <section class="seccion" id="Reserva de Cita">
         <div class="contenedor">
             <div class="titulo">
@@ -158,7 +154,7 @@
             <div class="tarjetas">
                 <div class="tarjeta">
                     <img src="{% static 'kineReserva.png' %}" alt="Profesional">
-                    <h3>Kinesiologia</h3>
+                    <h3>Kinesiología integrativa-bioreguladora</h3>
                     <p>Explora nuestro servicio de kinesiología con profesionales altamente capacitados. Trabajamos para mejorar tu salud y bienestar físico.</p>
                     <div id="scheduling-button"></div>
                 </div>
@@ -174,6 +170,12 @@
                     <p>Nuestros profesionales de enfermería están aquí para brindarte cuidados compasivos y servicios de salud centrados en el paciente.</p>
                     <div id="scheduling-button2"></div>
                 </div>
+                <div class="tarjeta">
+                  <img src="{% static 'enferReserva.png' %}" alt="Profesional">
+                  <h3>Psicóloga </h3>
+                  <p>Nuestros profesionales de enfermería están aquí para brindarte cuidados compasivos y servicios de salud centrados en el paciente.</p>
+                  <div id="scheduling-button2"></div>
+              </div>
             </div>
             
         </div>
@@ -186,34 +188,91 @@
             </div>
             <div class="tarjetas">
                 <div class="tarjeta">
-                    <img src="{% static 'pedro.png' %}" alt="Profesional">
-                    <h3>Pedro Gavilán -Kinesiólogo</h3>
-                    <p>6:00-13:00 JORNADA MAÑANA ( ENTRENAMIENTO Y KINESIOLOGIA) </p>
+                    <img src="{% static 'pedrogavilan1.jpg' %}" alt="Profesional">
+                    <h3>Pedro Gavilán- Kinesiólogo: </h3>
+                    <li>Kinesiología musculo-esquelética
+                      <li>Kinesiología Deportiva</li>
+                      <li>Coach Deportivo
+                    </li>
                 </div>
                 <div class="tarjeta">
                     <img src="{% static 'fran.png' %}" alt="Profesional">
-                    <h3>Francisca Díaz -Kinesiologa</h3>
-                    <p>9:00-20:30 Depilacion laser, tto corporales , post operatorio </p>
+                    <h3>Francisca Díaz Segura-kinesióloga:
+                    </h3>
+                    <li>Kinesiología  Certificada en Rehabilitación de Piso Pélvico
+                    </li>                    
+                    <li>Kinesiología dermatofuncional
+                    </li>
+                    <li>Entrenamiento pre y post parto
+                    </li>
+                    <li>Depilación láser y tratamientos corporales
+                    </li>
+            </div>
+                <div class="tarjeta">
+                    <img src="{% static 'arielfariaskine.jpg' %}" alt="Profesional">
+                    <h3>Ariel Farías Maulen- Kinesiólogo:
+                      </h3>
+                      <li>Medicina Bioreguladora 
+                      </li>                    
+                      <li>Punción Seca
+                      </li>
+                      <li>Terapia neural
+                      </li>
+                      <li>Electrolisis percutánea
+
+                      </li>
+                      <li>Medicina hiperbarica Regenerativa.
+                      </li>
                 </div>
                 <div class="tarjeta">
-                    <img src="{% static 'valen.png' %}" alt="Profesional">
-                    <h3>Valentina Romanini -Esteticista</h3>
-                    <p>9:00-20:30 Tratamiento faciales , tto corporales, masajes de
-                        relajación</p>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'dani.png' %}" alt="Profesional">
-                    <h3>Daniela Encina -Kinesióloga </h3>
-                    <p>Masajes terapéuticos (relajación, descontracturante, deportivos)
-                        Solo en las tardes (lunes-mar-jueves desde las 17:00, miércoles desde las 15:00)
-                    </p>
+                    <img src="{% static 'valentinaestet.jpg' %}" alt="Profesional">
+                    <h3>Valentina Romanini Salah-Esteticista integral
+                    </h3>
+                    <li>Tratamientos faciales y estéticos
+
+                    </li>                    
+                    <li>Masofilaxia 
+                    </li>
+                    <li>Masoterapia
+                    </li>
                 </div>
                 <div class="tarjeta">
                     <img src="" alt="Profesional">
-                    <h3>Ariel Farías -Kinesiólogo </h3>
-                    <p>Electro punción, terapia neural, electrolisis percutánea, Medicina
-                        bioreguladora, Hiperbárica.
-                    </p>
+                    <h3>Patricia Santis Santis- Psicóloga</h3>
+                    <li>Psicología Clínica Infanto-juvenil y adulto
+                    </li>                    
+                    <li>Terapia individual, familiar y de pareja 
+                    </li>
+                    <li>Procesos de evaluación psicológica y psicométricos.
+                    </li>
+                </div>
+                <div class="tarjeta">
+                  <img src="{% static 'valen.png' %}" alt="Profesional">
+                  <h3>Tamara Díaz Maureira –Enfermera Estética
+                    </h3>
+                    <li>Plasma rico en plaquetas</li>                    
+                    <li>Ácido Hiauluronico</li>
+                    <li>Hilos tensores </li>
+                    <li>Toxina Botulinica
+                    </li>
+                    <li>Mesoterapia 
+                    </li>
+                    <li>Armonización de Glúteos 
+                    </li>
+              </div>
+              <div class="tarjeta">
+                <img src="{% static 'susana.jpg' %}" alt="Profesional">
+                <h3>Susana Díaz Toro- Nutricionista
+                  </h3>
+                  <li>Nutrición  Clínica 
+                  </li>                    
+                  <li>Nutrición Deportiva
+                  </li>
+                  <li>Nutrición digestiva 
+                  </li>
+                  <li>Auriculoterapia.
+                  </li>
+            </div>
                 </div>
             </div>
         </div>
@@ -244,9 +303,17 @@
         </div>
     </section>
 
+    <h2 style="text-align: center;">Ubicacion</h2>
 
- 
-    <footer class="text-center text-lg-start text-dark" style="background-color: #8fffff;">
+<div class="map-container">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.7819602395903!2d-71.21038722443399!3d-33.68870957329607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966255ab43935573%3A0x35479b921374266c!2sCentro%20Integral%20de%20Salud%20y%20Est%C3%A9tica%20Corposanno!5e0!3m2!1sen!2scl!4v1706255667827!5m2!1sen!2scl"
+         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+
+    <footer id="Contacto" class="text-center text-lg-start text-dark" style="background: rgb(62,163,208);
+    background: radial-gradient(circle, rgba(62,163,208,1) 0%, rgba(54,198,200,1) 100%);"   >
     <!-- Grid container -->
     <div class="container-fluid p-6">
       <!--Grid row-->
@@ -259,67 +326,45 @@
                  loading="lazy" />
           </div>
 
-          <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-
           <ul class="list-unstyled d-flex flex-row justify-content-center">
             <li>
-              <a class="text-dark px-2" href="#!">
-                <i class="fab fa-facebook-square"></i>
+              <a class="text-dark px-2" href="https://www.instagram.com/corposanno/" target="_blank">
+                <i class="fab fa-instagram fa-2x"></i>
               </a>
             </li>
             <li>
-              <a class="text-dark px-2" href="https://www.instagram.com/corposanno_/">
-                <i class="fab fa-instagram"></i>
+              <a class="text-dark px-2" href="https://api.whatsapp.com/send?phone=56981322040" target="_blank">
+                <i class="fab fa-whatsapp fa-2x"></i>
               </a>
             </li>
             <li>
-              <a class="text-dark ps-2" href="#!">
-                <i class="fab fa-youtube"></i>
+              <a class="text-dark px-2" href="https://www.instagram.com/corposannosports/" target="_blank">
+                <i class="fab fa-instagram fa-2x"></i>
               </a>
             </li>
           </ul>
-
+          
+          
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4">Div 1</h5>
+          <h5 class="text-uppercase mb-4">Páginas</h5>
 
           <ul class="list-unstyled">
             <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 1</a>
+              <a href="#Servicios" class="text-dark"><i class="fa-solid fa-users pe-2"></i>Servicios</a>
             </li>
             <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 2</a>
+              <a href="#Reserva de Cita" class="text-dark"><i class="fa-solid fa-calendar-days pe-3"></i>Reserva tu Hora </a>
             </li>
             <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 3</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 4</a>
+              <a href="#Profesionales" class="text-dark"><i class="fa-solid fa-user-tie pe-3"></i>Profesionales</a>
             </li>
 
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4">Div 2</h5>
-
-          <ul class="list-unstyled">
             <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 1</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 2</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>Lista 3</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-dark"><i class="fas fa-paw pe-3"></i>JLista 4</a>
+              <a href="/blog/" class="text-dark"><i class="fa-solid fa-newspaper pe-3"></i>Guias Informativas</a>
             </li>
 
           </ul>
@@ -327,12 +372,17 @@
         <!--Grid column-->
 
         <!--Grid column-->
+      
+        <!--Grid column-->
+
+        <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4">Contact</h5>
+          <h5 class="text-uppercase mb-4">Contacto</h5>
 
           <ul class="list-unstyled">
             <li>
-              <p><i class="fas fa-map-marker-alt pe-2"></i>Melipilla</p>
+              <p><i class="fas fa-map-marker-alt pe-2"></i>Pasaje Libertad 86, 9582207 Melipilla, Región Metropolitana</p>
+       
             </li>
             <li>
               <p><i class="fas fa-phone pe-2"></i>9-15541531</p>
@@ -350,13 +400,68 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2024 Copyright:
-      <i class="text-dark" >Corpo Sanno</i>
-    </div>
+      <small>&copy; 2024 <span class="text-dark">Corpo Sanno</span>. Todos los derechos reservados.</small>
+  </div>
     <!-- Copyright -->
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+
+$(document).ready(function() {
+
+$('#carouselExampleIndicators').carousel({
+
+  interval: 3000
+
+});
+
+
+// Add active class to next carousel-item when "Next" button is clicked
+
+$('#carouselExampleIndicators').on('slid.bs.carousel', function() {
+
+  var currentIndex = $('.carousel-inner .active').index();
+
+  var nextIndex = (currentIndex + 1) % $('.carousel-inner .item').length;
+
+  $('.carousel-inner .item').eq(nextIndex).addClass('active');
+
+
+  // Add animation to "Next" button
+
+  $('.carousel-control-next').addClass('carousel-control-animate');
+
+  setTimeout(function() {
+
+    $('.carousel-control-next').removeClass('carousel-control-animate');
+
+  }, 500);
+
+});
+
+
+// Add animation to "Previous" button
+
+$('#carouselExampleIndicators').on('slide.bs.carousel', function() {
+
+  $('.carousel-control-prev').addClass('carousel-control-animate');
+
+  setTimeout(function() {
+
+    $('.carousel-control-prev').removeClass('carousel-control-animate');
+
+  }, 500);
+
+});
+
+});
+    </script>
 
   <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
     <script>
@@ -402,8 +507,6 @@
     
     </script>
 
-
 </body>
-
 
 </html>

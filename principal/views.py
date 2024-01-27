@@ -9,12 +9,14 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm, BlogPostForm
 from django.views.generic import UpdateView
 from django.contrib import messages
-
+from django.core.mail import send_mail
+from .forms import ContactForm
+from django.http import HttpResponse
 # Create your views here.
-
+from django.core.mail import send_mail
 def inicio(request):
-    # Lógica para recuperar y mostrar contenido relacionado con la salud
-    return render(request, 'inicio.html')
+    images = CarouselImage.objects.order_by('order')
+    return render(request, 'inicio.html', {'images': images})
 
 def blogs(request):
     is_blog_page = True
@@ -131,3 +133,12 @@ def Logout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('/login')
+
+
+def carousel(request):
+
+    images = CarouselImage.objects.order_by('order')
+
+    return render(request, 'inicio.html')
+
+

@@ -1,0 +1,83 @@
+<div>
+  <main>
+    <div class="bd-example">
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+
+  
+    <!-- Carousel inner -->
+  
+    <div class="carousel-inner" data-ride="carousel">
+      {% for image in images %}
+        {% if forloop.first %}
+          <div class="carousel-item active">
+        {% else %}
+          <div class="carousel-item">
+        {% endif %}
+          <img class="d-block w-100" src="{{ image.image.url }}" alt="{{ image.title }}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{ image.title }}</h5>
+            {% if image.link %}
+              <p><a href="{{ image.link }}" class="btn btn-light">Learn more</a></p>
+            {% endif %}
+            {% if image.description %}
+              <p>{{ image.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  
+    <!-- Carousel controls -->
+  
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+  
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+  <section class="seccion" id="Servicios">
+      <div class="contenedor">
+          <div class="titulo">
+              <h2>¿Qué ofrecemos?</h2>
+          </div>
+          <div class="tarjetas">
+              <div class="tarjeta">
+                  <img src="{% static 'masaje.png' %}" alt="Masaje">
+                  <h3>Masajes</h3>
+                  <p>Las sesiones de masajes en Corpo Sanno son una experiencia única de relajación y bienestar. Ofrecemos una variedad de masajes, desde opciones relajantes hasta terapéuticas y reflexivas. Nuestros terapeutas expertos utilizan técnicas especializadas para aliviar la tensión muscular, mejorar la circulación y proporcionar un alivio general del estrés. Descubre cómo nuestros masajes pueden contribuir a tu salud y equilibrio.</p>
+              </div>
+              <div class="tarjeta">
+                  <img src="{% static 'fisio1.png' %}" alt="Fisioterapia">
+                  <h3>Fisioterapia</h3>
+                  <p>En Corpo Sanno, la fisioterapia va más allá de la rehabilitación convencional. Nuestros servicios incluyen programas de rehabilitación postoperatoria, fisioterapia en sala especializada y asesoramiento para la readaptación a la vida cotidiana. Nuestro equipo de fisioterapeutas altamente capacitados se enfoca en el bienestar integral, trabajando para mejorar la movilidad, fortalecer los músculos y promover la recuperación total.</p>
+              </div>
+              <div class="tarjeta">
+                  <img src="{% static 'masajefacial.png' %}" alt="Naturaterapia">
+                  <h3>Reafirmación de Piel</h3>
+                  <p>Recupera la elasticidad y firmeza de tu piel con nuestros tratamientos de reafirmación. Mejora la textura y tonicidad para una apariencia rejuvenecida.</p>
+              </div>
+          </div>
+
+              <div class="card">
+                  <h5 class="card-header ">Guias informativas sobre salud</h5>
+                  <div class="card-body">
+                    <h5 class="card-title">5 consejos para cuidar tu piel</h5>
+                    <p class="card-text">Consejo sobre cuidado de la piel y un poco más de texto...</p>
+                    <a href="/blog/" class="btn btn-primary">Leer más</a>
+                  </div>
+              </div>
+          
+      </div>
+
+    </div>
+    </main>
+
+    </div>

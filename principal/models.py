@@ -54,4 +54,25 @@ class Comment(models.Model):
     def __str__(self):
         return self.user.username +  " Comment: " + self.content
     
+# models.py
+from django.db import models
 
+class Carrusel(models.Model):
+    imagen = models.ImageField(upload_to='profile_pics')
+    titulo = models.CharField(max_length=100)
+
+class CarouselImage(models.Model):
+
+    title = models.CharField(max_length=200,null=True)
+
+    image = models.ImageField(upload_to='carousel/')
+
+    link = models.URLField(blank=True, null=True)
+
+    description = models.TextField(blank=True, null=True)
+
+    order = models.IntegerField(default=0)
+
+    def __str__(self):
+
+        return self.title
