@@ -76,3 +76,11 @@ class CarouselImage(models.Model):
     def __str__(self):
 
         return self.title
+    
+class Servicio(models.Model):
+    titulo = models.CharField(max_length=255)
+    imagen = models.ImageField(upload_to='servicios/')
+    descripcion = models.TextField()
+
+    def __str__(self):
+        return self.titulo

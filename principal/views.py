@@ -14,9 +14,11 @@ from .forms import ContactForm
 from django.http import HttpResponse
 # Create your views here.
 from django.core.mail import send_mail
+
 def inicio(request):
     images = CarouselImage.objects.order_by('order')
-    return render(request, 'inicio.html', {'images': images})
+    servicios = Servicio.objects.all()
+    return render(request, 'inicio.html', {'images': images, 'servicios': servicios})
 
 def blogs(request):
     is_blog_page = True

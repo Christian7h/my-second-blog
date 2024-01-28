@@ -106,36 +106,23 @@
 
 
 
-    <section class="seccion" id="Servicios">
-        <div class="contenedor">
-
-            <div class="titulo">
-                <h2>¿Qué ofrecemos?</h2>
-            </div>
-            <div class="tarjetas">
-                <div class="tarjeta">
-                    <img src="{% static 'masaje.png' %}" alt="Masaje">
-                    <h3>TRATAMIENTOS DE BELLEZA</h3>
-                    <p>Ofrecemos  una variedad de tratamientos que se ajustan según tus necesidades, desde tratamientos corporales (reafirmante, reductivo, depilación láser), Faciales e inyectables realizados  por nuestras profesionales  kinesióloga, Enfermera y esteticista integral, que te entregaran una experiencia  relajante y única para contribuir a tu salud y bienestar.</p>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'fisio1.png' %}" alt="Fisioterapia">
-                    <h3>CORPO SANNO SPORT</h3>
-                    <p>Nos encargamos de llevar la kinesiología un nivel más allá, mirando y acompañando a la persona de una manera Integral, te ayudaremos a entender  tu lesión y entregamos las herramientas necesarias para que el retorno a sus actividades sea lo más pronto posible.
-                      Nuestros servicios incluyen educación y rehabilitación física, más una atención personalizada uno a uno por nuestros profesionales especializados en el área.
-                      </p>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'masajefacial.png' %}" alt="Naturaterapia">
-                    <h3>SALUD INTEGRAL
-                    </h3>
-                    <p>Brindamos una diversa gama de especialidades en nuestro centro  que puedes encontrar para complementar  tu salud y bienestar. Nuestros profesionales  especializados en las áreas de nutrición, Psicología, Kinesiología integrativa-bioreguladora y  Masoterapia  terapéutica, te atenderán y guiaran en tus objetivos para cuidar completo equilibrio  físico, psíquico y emocional.
-                    </p>
-                </div>
-            </div>
-            
+  <section class="seccion" id="Servicios">
+    <div class="contenedor">
+        <div class="titulo">
+            <h2>¿Qué ofrecemos?</h2>
         </div>
-    </section>
+        <div class="tarjetas">
+            {% for servicio in servicios %}
+                <div class="tarjeta">
+                    <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}">
+                    <h3>{{ servicio.titulo }}</h3>
+                    <p>{{ servicio.descripcion }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+  </section>
+
 
 
 

@@ -22,5 +22,4 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('principal.urls')),
-    path('carousel/', views.carousel, name='carousel'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
