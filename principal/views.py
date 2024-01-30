@@ -18,7 +18,10 @@ from django.core.mail import send_mail
 def inicio(request):
     images = CarouselImage.objects.order_by('order')
     servicios = Servicio.objects.all()
-    return render(request, 'inicio.html', {'images': images, 'servicios': servicios})
+    reservas_citas = ReservaCita.objects.all()
+    profesionales = Profesional.objects.all()
+    return render(request, 'inicio.html', {'images': images, 'servicios': servicios,'reservas_citas': reservas_citas, 'profesionales': profesionales})
+
 
 def blogs(request):
     is_blog_page = True

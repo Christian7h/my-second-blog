@@ -1,4 +1,5 @@
 {%load static%}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CORPO SANNO</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'servicios.css' %}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -16,12 +18,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/datosgobar/series-tiempo-ar-explorer@ts_components_2.9.0/dist/css/components.css" type="text/css">
 
     <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-
-
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 </head>
 
 <body >
-  
     <header>
         <nav class="navbar navbar-expand-lg" style="background-color: #8fffff;">
             <div class="container">
@@ -69,7 +69,7 @@
       </header>
 
   
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000" style="margin-top: 0px; ">
   <!-- Carousel inner -->
   <div class="carousel-inner">
     {% for image in images %}
@@ -104,166 +104,142 @@
   </a>
 </div>
 
-
-
-  <section class="seccion" id="Servicios">
+<section class="seccion">
+  <div class="contenedor">
+    <div class="tarjeta">
+      <h3 class="card-title">Explora nuestro blog</h3>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, recusandae sunt similique illo, distinctio laboriosam earum nihil obcaecati repudiandae perferendis eos voluptates? Reprehenderit a tempore quo neque accusamus nam id?</p>          <a href="/blog/" class="btn btn-primary btn-lg" style="box-shadow: 5px 6px 10px rgb(7, 156, 183);     background-color: #33B679; color: #ffffff;">Explora nuestro blog</a>
+    </div>
     <div class="contenedor">
-        <div class="titulo">
-            <h2>¿Qué ofrecemos?</h2>
+  </div>
+</section>
+
+<section class="seccion">
+    <div class="titulo">
+      <h2>¿Qué ofrecemos?</h2>
+    </div>
+
+  <section class="articles" style="margin-top: 35px; margin-bottom: 35px;">
+    {% for servicio in servicios %}
+
+    <article>
+      <div class="article-wrapper">
+
+        <figure>
+          <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}" />
+        </figure>
+
+        <div class="article-body">
+          <h2>{{ servicio.titulo }}</h2>
+          <p>
+            {{ servicio.descripcion }}
+          </p>
         </div>
-        <div class="tarjetas">
-            {% for servicio in servicios %}
-                <div class="tarjeta">
-                    <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}">
-                    <h3>{{ servicio.titulo }}</h3>
-                    <p>{{ servicio.descripcion }}</p>
-                </div>
-            {% endfor %}
+      </div>
+    </article>
+
+      {% endfor %}
+  </section>
+</section>
+
+
+<section class="seccion" id="Reserva de Cita">
+
+  <div class="titulo">
+    <h2>Reserva de Citas</h2>
+  </div>
+
+  <section class="articles" style="margin-top: 35px; margin-bottom: 35px;">
+    {% for reserva in reservas_citas %}
+
+    <article>
+      <div class="article-wrapper">
+        <figure>
+          <img src="{{ reserva.imagen.url }}" alt="Profesional">
+        </figure>
+        <div class="article-body" style="align-items: center; margin-top: 0px; margin: 0 auto;">
+          <h3>{{ reserva.nombre_profesional }}</h3>
+          <p>{{ reserva.descripcion }}</p>
+          <div style="margin-top: 0px; display: flex; justify-content: center; align-items: center;">
+            <div id="{{ reserva.etiqueta_boton }}"></div>
+          </div>
+          <script>
+            (function () {
+              var target = document.getElementById('{{ reserva.etiqueta_boton }}');
+              window.addEventListener('load', function () {
+                calendar.schedulingButton.load({
+                  url: '{{ reserva.google_calendar_url }}',
+                  color: '{{ reserva.color }}',
+                  label: '{{ reserva.nombre_profesional }}',
+                  target,
+                });
+              });
+            })();
+          </script>
         </div>
+    </article>
+    {% endfor %}
     </div>
   </section>
+</section>
 
-
-
-
-  
+<!-- <section class="seccion" id="Reserva de Cita">
+  <div class="contenedor">
+    <div class="titulo">
+      <h2>Reserva de Citas</h2>
+    </div>
+    <div class="tarjetas">
+      {% for reserva in reservas_citas %}
       <div class="tarjeta">
-        <h3 class="card-title">Explora nuestro blog</h3>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, recusandae sunt similique illo, distinctio laboriosam earum nihil obcaecati repudiandae perferendis eos voluptates? Reprehenderit a tempore quo neque accusamus nam id?</p>          <a href="/blog/" class="btn btn-primary btn-lg" style="box-shadow: 5px 6px 10px rgb(7, 156, 183);     background-color: #33B679; color: #ffffff;">Explora nuestro blog</a>
-      </div>
-
-  
-    <section class="seccion" id="Reserva de Cita">
-        <div class="contenedor">
-            <div class="titulo">
-                <h2>Reserva de Citas</h2>
-            </div>
-            <div class="tarjetas">
-                <div class="tarjeta">
-                    <img src="{% static 'kineReserva.png' %}" alt="Profesional">
-                    <h3>Kinesiología integrativa-bioreguladora</h3>
-                    <p>Explora nuestro servicio de kinesiología con profesionales altamente capacitados. Trabajamos para mejorar tu salud y bienestar físico.</p>
-                    <div id="scheduling-button"></div>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'nutrireserva.png' %}" alt="Profesional">
-                    <h3>Nutricionista</h3>
-                    <p>Descubre cómo nuestros nutricionistas pueden ayudarte a alcanzar tus metas de salud a través de planes personalizados y asesoramiento experto.</p>
-                    <div id="scheduling-button1"></div>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'enferReserva.png' %}" alt="Profesional">
-                    <h3>Enfermera</h3>
-                    <p>Nuestros profesionales de enfermería están aquí para brindarte cuidados compasivos y servicios de salud centrados en el paciente.</p>
-                    <div id="scheduling-button2"></div>
-                </div>
-                <div class="tarjeta">
-                  <img src="{% static 'enferReserva.png' %}" alt="Profesional">
-                  <h3>Psicóloga </h3>
-                  <p>Nuestros profesionales de enfermería están aquí para brindarte cuidados compasivos y servicios de salud centrados en el paciente.</p>
-                  <div id="scheduling-button2"></div>
-              </div>
-            </div>
-            
+        <img src="{{ reserva.imagen.url }}" alt="Profesional">
+        <h3>{{ reserva.nombre_profesional }}</h3>
+        <p>{{ reserva.descripcion }}</p>
+        <div class="reserva-boton-container" id="{{ reserva.etiqueta_boton }}" style="margin-top: 0px;">
         </div>
-    </section>
+        <script>
+            (function() {
+                var target = document.getElementById('{{ reserva.etiqueta_boton }}');
+                window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                        url: '{{ reserva.google_calendar_url }}',
+                        color: '{{ reserva.color }}',
+                        label: '{{ reserva.nombre_profesional }}',
+                        target,
+                    });
+                });
+            })();
+        </script>
+    </div>
+      {% endfor %}
+    </div>
+  </div>
+</section> -->
 
-    <section class="seccion" id="Profesionales">
-        <div class="contenedor">
-            <div class="titulo">
-                <h2>Equipo</h2>
-            </div>
-            <div class="tarjetas">
-                <div class="tarjeta">
-                    <img src="{% static 'pedrogavilan1.jpg' %}" alt="Profesional">
-                    <h3>Pedro Gavilán- Kinesiólogo: </h3>
-                    <li>Kinesiología musculo-esquelética
-                      <li>Kinesiología Deportiva</li>
-                      <li>Coach Deportivo
-                    </li>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'fran.png' %}" alt="Profesional">
-                    <h3>Francisca Díaz Segura-kinesióloga:
-                    </h3>
-                    <li>Kinesiología  Certificada en Rehabilitación de Piso Pélvico
-                    </li>                    
-                    <li>Kinesiología dermatofuncional
-                    </li>
-                    <li>Entrenamiento pre y post parto
-                    </li>
-                    <li>Depilación láser y tratamientos corporales
-                    </li>
-            </div>
-                <div class="tarjeta">
-                    <img src="{% static 'arielfariaskine.jpg' %}" alt="Profesional">
-                    <h3>Ariel Farías Maulen- Kinesiólogo:
-                      </h3>
-                      <li>Medicina Bioreguladora 
-                      </li>                    
-                      <li>Punción Seca
-                      </li>
-                      <li>Terapia neural
-                      </li>
-                      <li>Electrolisis percutánea
-
-                      </li>
-                      <li>Medicina hiperbarica Regenerativa.
-                      </li>
-                </div>
-                <div class="tarjeta">
-                    <img src="{% static 'valentinaestet.jpg' %}" alt="Profesional">
-                    <h3>Valentina Romanini Salah-Esteticista integral
-                    </h3>
-                    <li>Tratamientos faciales y estéticos
-
-                    </li>                    
-                    <li>Masofilaxia 
-                    </li>
-                    <li>Masoterapia
-                    </li>
-                </div>
-                <div class="tarjeta">
-                    <img src="" alt="Profesional">
-                    <h3>Patricia Santis Santis- Psicóloga</h3>
-                    <li>Psicología Clínica Infanto-juvenil y adulto
-                    </li>                    
-                    <li>Terapia individual, familiar y de pareja 
-                    </li>
-                    <li>Procesos de evaluación psicológica y psicométricos.
-                    </li>
-                </div>
-                <div class="tarjeta">
-                  <img src="{% static 'valen.png' %}" alt="Profesional">
-                  <h3>Tamara Díaz Maureira –Enfermera Estética
-                    </h3>
-                    <li>Plasma rico en plaquetas</li>                    
-                    <li>Ácido Hiauluronico</li>
-                    <li>Hilos tensores </li>
-                    <li>Toxina Botulinica
-                    </li>
-                    <li>Mesoterapia 
-                    </li>
-                    <li>Armonización de Glúteos 
-                    </li>
-              </div>
-              <div class="tarjeta">
-                <img src="{% static 'susana.jpg' %}" alt="Profesional">
-                <h3>Susana Díaz Toro- Nutricionista
-                  </h3>
-                  <li>Nutrición  Clínica 
-                  </li>                    
-                  <li>Nutrición Deportiva
-                  </li>
-                  <li>Nutrición digestiva 
-                  </li>
-                  <li>Auriculoterapia.
-                  </li>
-            </div>
-                </div>
-            </div>
+<section class="seccion" id="Profesionales">
+  <div class="titulo">
+      <h2>Equipo</h2>
+  </div>
+<section class="articles" style="margin-top: 35px; margin-bottom: 35px;">
+      {% for profesional in profesionales %}
+      <article>
+        <div class="article-wrapper">
+        <figure>
+          <img src="{{ profesional.imagen.url }}" alt="Profesional">
+        </figure>
+          <div class="article-body">
+            <h2 style="text-align: center;">{{ profesional.nombre }}</h2>
+            <ul>
+                {% for especialidad in profesional.obtener_especialidades %}
+                    <li>{{ especialidad }}</li>
+                {% endfor %}
+            </ul>
+          </div>
         </div>
-    </section>
+    </article>
+      {% endfor %}
+</section>
+</section>
+
 
     <section class="bg-light py-5" id="Acerca de Nosotros" >
         <div class="container">
@@ -391,6 +367,7 @@
   </div>
     <!-- Copyright -->
   </footer>
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -448,51 +425,12 @@ $('#carouselExampleIndicators').on('slide.bs.carousel', function() {
 });
 
 });
-    </script>
+</script>
 
-  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-    <script>
-        (function() {
-         var target = document.getElementById('scheduling-button');
-         window.addEventListener('load', function() {
-            calendar.schedulingButton.load({
-              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0XX1LaOJubJomdKGCnh2_l6lXA4AjsyEK4t6v_RkoXN8i9hyplN58RBYz33XavJcKf2jNn4xea?gv=true',
-              color: '#039BE5',
-              label: "Reservar una Cita(Kine)",
-              target,
-            });
-         });
-        })();
-    </script>
-    
-    <script>
-        (function() {
-        var target = document.getElementById('scheduling-button1');
-        window.addEventListener('load', function() {
-            calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ19vaxVC6PlVcuOWYJVQqRUrysSOxycbcdayAJyTeaLPuRK_Oy5fc7zr_riTHyL3LT1NHfeVARl?gv=true',
-            color: '#33B679',
-            label: "Reserva de Cita(Nutri)",
-            target,
-            });
-        });
-        })();
-    </script>
-    
-    <script>
-    (function() {
-        var target = document.getElementById('scheduling-button2');
-        window.addEventListener('load', function() {
-            calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uz93aQj_uYnNpZne84suekeDjcpB9tGoYLQgqVxg8RdSSO5N0bdHatOIVid99z4RlfA6Bq7LB?gv=true',
-            color: '#8E24AA',
-            label: 'Reservar una cita(Enfer)',
-            target,
-            });
-        });
-        })();
-    
-    </script>
+
+
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
 
 </body>
 

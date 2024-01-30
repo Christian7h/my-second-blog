@@ -6,6 +6,9 @@
 .edit{
 float: right;
 }
+.delete{
+float: right;
+}
 {% endblock %}
 {% block body %}
 {% load humanize %}
@@ -21,7 +24,9 @@ float: right;
                   <h5 class="mt-0">
                               {% if user.is_authenticated %}
                               {% if user.id == post.author.id %}
-                              <small><a href="/edit_blog_post/{{post.slug}}/" class="edit btn btn-warning">Editar Blog</a></small>
+                              <small><a href="{%url 'delete_blog_post' slug=post.slug %}" class="delete btn btn-danger mx-3">Eliminar Blog</a>
+                              </small>
+                              <small><a href="/edit_blog_post/{{post.slug}}/" class="edit btn btn-warning mx-3">Editar Blog</a></small>
                               {% endif %}
                               {% endif %}
                         </a></h5>
@@ -33,7 +38,6 @@ float: right;
      <hr>
 
       {{post.dateTime}}
+</div>
 
-      </div>
-
-      {% endblock %}
+{% endblock %}

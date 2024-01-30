@@ -1,19 +1,13 @@
 from django.db import models
 
 # Create your models here.
-from django.conf import settings
-from django.db import models
-from django.utils import timezone
 
-
-from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.timezone import now
 from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy as _
 
-from datetime import datetime
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
@@ -53,24 +47,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.user.username +  " Comment: " + self.content
-    
-# models.py
-from django.db import models
 
-class Carrusel(models.Model):
-    imagen = models.ImageField(upload_to='profile_pics')
-    titulo = models.CharField(max_length=100)
 
 class CarouselImage(models.Model):
-
     title = models.CharField(max_length=200,null=True)
-
     image = models.ImageField(upload_to='carousel/')
-
     link = models.URLField(blank=True, null=True)
-
     description = models.TextField(blank=True, null=True)
-
     order = models.IntegerField(default=0)
 
     def __str__(self):
@@ -84,3 +67,25 @@ class Servicio(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class ReservaCita(models.Model):
+    nombre_profesional = models.CharField(max_length=255)
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='reservaCita/')
+    google_calendar_url = models.URLField()
+    color = models.CharField(max_length=7)  # Color en formato hexadecimal (#RRGGBB)
+    etiqueta_boton = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.nombre_profesional
+
+class Profesional(models.Model):
+    nombre = models.CharField(max_length=255)
+    imagen = models.ImageField(upload_to='profesionales/')
+    especialidades = models.TextField()
+
+    def obtener_especialidades(self):
+        return self.especialidades.split('\n')
+
+    def __str__(self):
+        return self.nombre

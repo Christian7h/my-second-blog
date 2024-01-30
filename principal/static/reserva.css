@@ -1,0 +1,76 @@
+/* styles.css */
+
+/* Estilo para la tarjeta de reserva */
+.reserva-tarjeta {
+  position: relative;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #fff;
+  transform-origin: center;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+/* Estilo para la imagen en la tarjeta de reserva */
+.reserva-tarjeta img {
+  max-width: 100%;
+  transform-origin: center;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Estilo para el título en la tarjeta de reserva */
+.reserva-tarjeta h3 {
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.9rem;
+  letter-spacing: 0.06em;
+  color: black;
+  transition: color 0.3s ease-out;
+}
+
+/* Estilo para el párrafo en la tarjeta de reserva */
+.reserva-tarjeta p {
+  padding: 24px;
+}
+
+/* Estilo para el enlace en la tarjeta de reserva */
+.reserva-tarjeta a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #28666e;
+}
+
+/* Estilo para el icono en el enlace de la tarjeta de reserva */
+.reserva-tarjeta a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+/* Aplicar estilos adicionales al hacer hover o focus en la tarjeta de reserva */
+.reserva-tarjeta:hover,
+.reserva-tarjeta:focus {
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.reserva-tarjeta:hover img,
+.reserva-tarjeta:focus img {
+  transform: scale(1.1);
+}
+
+.reserva-tarjeta:hover h3,
+.reserva-tarjeta:focus h3 {
+  color: #268f9c;
+}
+
+.reserva-tarjeta:hover a .icon,
+.reserva-tarjeta:focus a .icon {
+  transform: translateX(0);
+  opacity: 1;
+}
