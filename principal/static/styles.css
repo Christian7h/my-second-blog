@@ -1,3 +1,69 @@
+@font-face {
+    font-family: 'Austine';
+    src: url('/static/Austine.ttf')
+}
+
+@font-face {
+    font-family: 'Heavitas';
+    src: url('/static/Heavitas.ttf')
+}
+
+@font-face {
+    font-family: 'cocogoose1';
+    src: url('/static/cocogoose1.ttf')
+}
+@font-face {
+    font-family: 'cocogoose2';
+    src: url('/static/cocogoose2.ttf')
+}
+@font-face {
+    font-family: 'Cavilant';
+    src: url('/static/Cavilant.ttf')
+}
+@font-face {
+    font-family: 'cocogoose3';
+    src: url('/static/cocogoose3.ttf')
+}
+@font-face {
+    font-family: 'cocogoose4';
+    src: url('/static/cocogoose4.ttf')
+}
+@keyframes show {
+    from{
+        opacity: 0;
+        scale: 25%;
+    }
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+h1{
+    font-family:Heavitas;
+    font-size: 10px;
+    color: #a2b6df;
+}
+h2{
+    font-family: Cavilant;
+}
+h3{
+    font-family: Cavilant;
+}
+
+p{
+    font-family:cocogoose4;
+}
+
+.articles img{
+    view-timeline-name: --image ;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name : show;
+
+    animation-range: entry 10% cover 25%;
+    animation-fill-mode: both;
+}
 .bg-personalizado {
     background-color: #8fffff;
 }
@@ -41,6 +107,14 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+    view-timeline-name: --tarjeta ;
+    view-timeline-axis: block;
+
+    animation-timeline: --tarjeta;
+    animation-name : show;
+
+    animation-range: entry 10% cover 25%;
+    animation-fill-mode: both;
 }
 
 .titulo {
@@ -61,7 +135,6 @@ img {
     padding: 30px 0;
 }
 
-
 .tarjetas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -69,13 +142,19 @@ img {
 }
 
 .tarjeta { 
-    background-color: #f2f2f2;
+    background: rgb(232, 232, 232);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 5px 6px 10px rgb(7, 156, 183);
+    box-shadow: 5px 6px 10px rgb(67, 69, 69);
     text-align: center;
-    background: rgb(62,163,208);
-    background: radial-gradient(circle, rgba(62,163,208,1) 0%, rgba(54,198,200,1) 100%);
+    view-timeline-name: --tarjeta ;
+    view-timeline-axis: block;
+
+    animation-timeline: --tarjeta;
+    animation-name : show;
+
+    animation-range: entry 10% cover 25%;
+    animation-fill-mode: both;
 }
 
 .formulario {
@@ -92,7 +171,6 @@ footer {
 footer p {
     margin-bottom: 5px;
 }
-
 
 .red-social a {
     display: inline-block;
@@ -130,7 +208,6 @@ footer p {
     margin: auto;
     margin-top: 30px;
 }  
-
 
 .map-container iframe {
     position: relative;

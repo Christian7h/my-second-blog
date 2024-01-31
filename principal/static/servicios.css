@@ -1,3 +1,37 @@
+/* styles.css */
+@font-face {
+  font-family: 'Austine';
+  src: url('/static/Austine.ttf')
+}
+
+@font-face {
+  font-family: 'Heavitas';
+  src: url('/static/Heavitas.ttf')
+}
+
+@font-face {
+  font-family: 'cocogoose1';
+  src: url('/static/cocogoose1.ttf')
+}
+@font-face {
+  font-family: 'cocogoose2';
+  src: url('/static/cocogoose2.ttf')
+}
+@font-face {
+  font-family: 'Cavilant';
+  src: url('/static/Cavilant.ttf')
+}
+
+@keyframes show {
+  from{
+      opacity: 0;
+      scale: 25%;
+  }
+  to {
+      opacity: 1;
+      scale: 100%;
+  }
+}
 article {
     --img-scale: 1.001;
     --title-color: black;
@@ -6,10 +40,18 @@ article {
     position: relative;
     border-radius: 16px;
     box-shadow: none;
-    background: #fff;
+    background: rgb(232, 232, 232);
     transform-origin: center;
     transition: all 0.4s ease-in-out;
     overflow: hidden;
+    view-timeline-name: --image ;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name : show;
+
+    animation-range: entry 10% cover 25%;
+    animation-fill-mode: both;
   }
   
   article a::after {
@@ -23,7 +65,7 @@ article {
   /* basic article elements styling */
   article h2 {
     margin: 0 0 18px 0;
-    font-family: "Bebas Neue", cursive;
+    font-family: "Cavilant", cursive;
     font-size: 1.9rem;
     letter-spacing: 0.06em;
     color: var(--title-color);
@@ -41,6 +83,8 @@ article {
     transform-origin: center;
     transform: scale(var(--img-scale));
     transition: transform 0.4s ease-in-out;
+
+
   }
   
   .article-body {
@@ -55,7 +99,7 @@ article {
   }
   
   article a:focus {
-    outline: 1px dotted #28666e;
+    outline: 1px dotted #22bfca;
   }
   
   article a .icon {
@@ -71,7 +115,7 @@ article {
   /* using the has() relational pseudo selector to update our custom properties */
   article:has(:hover, :focus) {
     --img-scale: 1.1;
-    --title-color: #268f9c;
+    --title-color: rgb(28, 212, 212);
     --link-icon-translate: 0;
     --link-icon-opacity: 1;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -96,6 +140,7 @@ article {
     padding-inline: 24px;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 24px;
+    
   }
   
   @media screen and (max-width: 960px) {

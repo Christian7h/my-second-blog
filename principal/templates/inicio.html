@@ -38,7 +38,7 @@
                         navbar.classList.toggle("show");
                     }
                 </script>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav" style="font-family: cocogoose4;">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="#Inicio">Inicio</a>
@@ -53,7 +53,7 @@
                             <a class="nav-link" href="#Profesionales">Profesionales</a>
                         </li>     
                         <li class="nav-item active">
-                            <a class="nav-link" href="/blog/">Información</a>
+                            <a class="nav-link" href="/blog/">Blog</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#Acerca de Nosotros">Acerca de Nosotros</a>
@@ -104,31 +104,19 @@
   </a>
 </div>
 
-<section class="seccion">
-  <div class="contenedor">
-    <div class="tarjeta">
-      <h3 class="card-title">Explora nuestro blog</h3>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, recusandae sunt similique illo, distinctio laboriosam earum nihil obcaecati repudiandae perferendis eos voluptates? Reprehenderit a tempore quo neque accusamus nam id?</p>          <a href="/blog/" class="btn btn-primary btn-lg" style="box-shadow: 5px 6px 10px rgb(7, 156, 183);     background-color: #33B679; color: #ffffff;">Explora nuestro blog</a>
-    </div>
-    <div class="contenedor">
-  </div>
-</section>
 
-<section class="seccion">
+
+<section class="seccion" >
     <div class="titulo">
       <h2>¿Qué ofrecemos?</h2>
     </div>
-
   <section class="articles" style="margin-top: 35px; margin-bottom: 35px;">
     {% for servicio in servicios %}
-
     <article>
       <div class="article-wrapper">
-
         <figure>
           <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}" />
         </figure>
-
         <div class="article-body">
           <h2>{{ servicio.titulo }}</h2>
           <p>
@@ -137,28 +125,33 @@
         </div>
       </div>
     </article>
-
       {% endfor %}
   </section>
 </section>
 
+<section class="seccion">
+  <div class="contenedor">
+    <div class="tarjeta" >
+      <h3 class="card-title">Explora nuestro blog</h3>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, recusandae sunt similique illo, distinctio laboriosam earum nihil obcaecati repudiandae perferendis eos voluptates? Reprehenderit a tempore quo neque accusamus nam id?</p>          <a href="/blog/" class="btn btn-primary btn-lg" style="box-shadow: 5px 6px 10px rgb(7, 156, 183);     background-color: #33B679; color: #ffffff;">Explora nuestro blog</a>
+    </div>
+    <div class="contenedor">
+  </div>
+</section>
 
 <section class="seccion" id="Reserva de Cita">
-
   <div class="titulo">
     <h2>Reserva de Citas</h2>
   </div>
-
   <section class="articles" style="margin-top: 35px; margin-bottom: 35px;">
     {% for reserva in reservas_citas %}
-
     <article>
       <div class="article-wrapper">
         <figure>
           <img src="{{ reserva.imagen.url }}" alt="Profesional">
         </figure>
         <div class="article-body" style="align-items: center; margin-top: 0px; margin: 0 auto;">
-          <h3>{{ reserva.nombre_profesional }}</h3>
+          <h2>{{ reserva.nombre_profesional }}</h2>
           <p>{{ reserva.descripcion }}</p>
           <div style="margin-top: 0px; display: flex; justify-content: center; align-items: center;">
             <div id="{{ reserva.etiqueta_boton }}"></div>
@@ -183,37 +176,6 @@
   </section>
 </section>
 
-<!-- <section class="seccion" id="Reserva de Cita">
-  <div class="contenedor">
-    <div class="titulo">
-      <h2>Reserva de Citas</h2>
-    </div>
-    <div class="tarjetas">
-      {% for reserva in reservas_citas %}
-      <div class="tarjeta">
-        <img src="{{ reserva.imagen.url }}" alt="Profesional">
-        <h3>{{ reserva.nombre_profesional }}</h3>
-        <p>{{ reserva.descripcion }}</p>
-        <div class="reserva-boton-container" id="{{ reserva.etiqueta_boton }}" style="margin-top: 0px;">
-        </div>
-        <script>
-            (function() {
-                var target = document.getElementById('{{ reserva.etiqueta_boton }}');
-                window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                        url: '{{ reserva.google_calendar_url }}',
-                        color: '{{ reserva.color }}',
-                        label: '{{ reserva.nombre_profesional }}',
-                        target,
-                    });
-                });
-            })();
-        </script>
-    </div>
-      {% endfor %}
-    </div>
-  </div>
-</section> -->
 
 <section class="seccion" id="Profesionales">
   <div class="titulo">
@@ -228,7 +190,7 @@
         </figure>
           <div class="article-body">
             <h2 style="text-align: center;">{{ profesional.nombre }}</h2>
-            <ul>
+            <ul style="font-family:Cocogoose4;">
                 {% for especialidad in profesional.obtener_especialidades %}
                     <li>{{ especialidad }}</li>
                 {% endfor %}
@@ -314,7 +276,6 @@
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4">Páginas</h5>
-
           <ul class="list-unstyled">
             <li class="mb-2">
               <a href="#Servicios" class="text-dark"><i class="fa-solid fa-users pe-2"></i>Servicios</a>
@@ -342,16 +303,16 @@
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4">Contacto</h5>
 
-          <ul class="list-unstyled">
+          <ul class="lista-contacto">
             <li>
-              <p><i class="fas fa-map-marker-alt pe-2"></i>Pasaje Libertad 86, 9582207 Melipilla, Región Metropolitana</p>
+              <h5><i class="fas fa-map-marker-alt pe-2"></i>Pasaje Libertad 86, 9582207 Melipilla, Región Metropolitana</h5>
        
             </li>
             <li>
-              <p><i class="fas fa-phone pe-2"></i>9-15541531</p>
+              <h5><i class="fas fa-phone pe-2"></i>9-15541531</h5>
             </li>
             <li>
-              <p><i class="fas fa-envelope pe-2 mb-0"></i>direccion@gmail.cl</p>
+              <h5><i class="fas fa-envelope pe-2 mb-0"></i>direccion@gmail.cl</h5>
             </li>
           </ul>
         </div>

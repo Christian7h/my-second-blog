@@ -1,4 +1,26 @@
 /* styles.css */
+@font-face {
+  font-family: 'Austine';
+  src: url('/static/Austine.ttf')
+}
+
+@font-face {
+  font-family: 'Heavitas';
+  src: url('/static/Heavitas.ttf')
+}
+
+@font-face {
+  font-family: 'cocogoose1';
+  src: url('/static/cocogoose1.ttf')
+}
+@font-face {
+  font-family: 'cocogoose2';
+  src: url('/static/cocogoose2.ttf')
+}
+@font-face {
+  font-family: 'Cavilant';
+  src: url('/static/Cavilant.ttf')
+}
 
 /* Estilo para la tarjeta de reserva */
 .reserva-tarjeta {
@@ -9,6 +31,7 @@
   transform-origin: center;
   transition: all 0.4s ease-in-out;
   overflow: hidden;
+  
 }
 
 /* Estilo para la imagen en la tarjeta de reserva */
